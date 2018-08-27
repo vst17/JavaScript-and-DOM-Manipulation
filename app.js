@@ -12,8 +12,8 @@ var $resetButton = document.querySelector("#reset");
 
 // add an event listener to searchbutton and resetbutton and add a function
 
-$searchButton.addEventListener("click", searchFunction);
-$resertButton.addEventListener("click", resetFunction);
+$searchButton.addEventListener("click", searchData);
+$resetButton.addEventListener("click", resetData);
 
 // Set fileteredData to dataSet ; reset data to dataSet
 var fileteredData = dataSet;
@@ -44,7 +44,7 @@ function renderTable() {
         };
     };
 };
-function searchFunction(event){
+function searchData(event){
 	//to prevent the page from refreshing
 	event.preventDefault();
 
@@ -68,15 +68,15 @@ function searchFunction(event){
 	};
 
 	var filteredState = $stateInput.value.trim().toLowerCase();
-	if (filterState !="") {
+	if (filteredState !="") {
 		filteredData = filteredData.filter(function(data) {
 			var dataState = data.set.toLowerCase();
-			return dataState === filterState;
+			return dataState === filteredState;
 		});
 	};
 
 
-	var filteredCountry = $countrInput.value.trim().toLowerCase();
+	var filteredCountry = $countryInput.value.trim().toLowerCase();
 	if(filteredCountry !="") {
 		fileteredData = filteredData.filter(function(data) {
 			var dataCountry = data.country.toLowerCase();
@@ -88,14 +88,15 @@ function searchFunction(event){
 
 	}
 
-	funtion resetData() {
-		filteredData = dataSet;
-		$dataInput.value = "";
-		$cityInput.value = "";
-		$stateInput.value = "";
-		$countryInput.value = "";
-		$shapeInput.value = "";
-		renderTable();
+		function resetData() {
+  		filteredData = dataSet;
+  		$dateInput.value = "";
+  		$cityInput.value = "";
+  		$stateInput.value = "";
+  		$countryInput.value = "";
+ 		$shapeInput.value = "";
+  		renderTable();
+
 
 	}
 

@@ -16,9 +16,12 @@ $searchButton.addEventListener("click", searchData);
 $resetButton.addEventListener("click", resetData);
 
 // Set fileteredData to dataSet ; reset data to dataSet
-var fileteredData = dataSet;
+var filteredData = dataSet;
 var resetData = dataSet;
 
+//Set starting index and results per page
+var startingIndex = 0;
+var resultsPerPage = 1000;
 // function to render filetered data to the tbody
 
 function renderTable() {
